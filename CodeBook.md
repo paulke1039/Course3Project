@@ -28,35 +28,88 @@ For each record in the dataset it is provided:
 - Its activity label. 
 - An identifier of the subject who carried out the experiment.
 
-### Requirement 1. Merge the training and the test sets to create one data set.
-After setting the source directory for the files, read into tables the data located in 
-the following files:
-- features.txt
-- activity_labels.txt
-- subject_train.txt
-- x_train.txt
-- y_train.txt
-- subject_test.txt
-- x_test.txt
-- y_test.txt
+This code book summarizes the resulting data fields in `tidy.txt`.
 
-After the dataset is read in, column names are updated so it is easier to read and understand.
-subject_train and subject_test contain the subjectID
-features dataset contain the description for x_train and x_test datasets
-and y_train and y_test datasets contain the activityID
+## Identifiers
 
-### Requirement 2. Extract only the measurements on the mean and standard deviation for each measurement. 
-First, the column names are extracted into a logical vector that contains TRUE values for the ActivityID, SubjectID, mean and stdev columns.
-The dataset is then subset to include only the required columns into it.
+* `subjectID` - The ID of the test subject
+* `activityID` - The ID of theactivity performed when the corresponding measurements were taken
 
-## Requirement 3. Use descriptive activity names to name the activities in the data set
-In this step, we merge the dataset with the activityType table by the activityID and include all of the overall dataset values.
+## Measurements
+Time.Body.Acceleration.Mean-X
+Time.Body.Acceleration.Mean-Y
+Time.Body.Acceleration.Mean-Z
+Time.Body.Acceleration.StdDev-X
+Time.Body.Acceleration.StdDev-Y
+Time.Body.Acceleration.StdDev-Z                              
+Time.GravityAcceleration.Mean-X
+Time.GravityAcceleration.Mean-Y                              
+Time.GravityAcceleration.Mean-Z
+Time.GravityAcceleration.StdDev-X
+Time.GravityAcceleration.StdDev-Y
+Time.GravityAcceleration.StdDev-Z
+Time.Body.Acceleration_Jerk.Mean-X
+Time.Body.Acceleration_Jerk.Mean-Y
+Time.Body.Acceleration_Jerk.Mean-Z
+Time.Body.Acceleration_Jerk.StdDev-X
+Time.Body.Acceleration_Jerk.StdDev-Y
+Time.Body.Acceleration_Jerk.StdDev-Z
+Time.Body.Gyroscope.Mean-X
+Time.Body.Gyroscope.Mean-Y
+Time.Body.Gyroscope.Mean-Z
+Time.Body.Gyroscope.StdDev-X
+Time.Body.Gyroscope.StdDev-Y
+Time.Body.Gyroscope.StdDev-Z
+Time.Body.Acceleration.Magnitude.Mean
+Time.Body.Acceleration.Magnitude.StdDev
+Time.GravityAcceleration.Magnitude.Mean
+Time.GravityAcceleration.Magnitude.StdDev
+Time.Body.Acceleration_Jerk.Magnitude.Mean
+Time.Body.Acceleration_Jerk.Magnitude.StdDev                 
+Time.Body.Gyroscope.Magnitude.Mean
+Time.Body.Gyroscope.Magnitude.StdDev                         
+Frequency.Body.Acceleration.Mean-X
+Frequency.Body.Acceleration.Mean-Y                           
+Frequency.Body.Acceleration.Mean-Z
+Frequency.Body.Acceleration.StdDev-X
+Frequency.Body.Acceleration.StdDev-Y
+Frequency.Body.Acceleration.StdDev-Z
+Frequency.Body.Acceleration.MeanFreq-X
+Frequency.Body.Acceleration.MeanFreq-Y
+Frequency.Body.Acceleration.MeanFreq-Z
+Frequency.Body.Acceleration_Jerk.Mean-X
+Frequency.Body.Acceleration_Jerk.Mean-Y
+Frequency.Body.Acceleration_Jerk.Mean-Z
+Frequency.Body.Acceleration_Jerk.StdDev-X
+Frequency.Body.Acceleration_Jerk.StdDev-Y
+Frequency.Body.Acceleration_Jerk.StdDev-Z
+Frequency.Body.Acceleration_Jerk.MeanFreq-X
+Frequency.Body.Acceleration_Jerk.MeanFreq-Y
+Frequency.Body.Acceleration_Jerk.MeanFreq-Z
+Frequency.Body.Gyroscope.Mean-X
+Frequency.Body.Gyroscope.Mean-Y
+Frequency.Body.Gyroscope.Mean-Z
+Frequency.Body.Gyroscope.StdDev-X
+Frequency.Body.Gyroscope.StdDev-Y
+Frequency.Body.Gyroscope.StdDev-Z
+Frequency.Body.Gyroscope.MeanFreq-X
+Frequency.Body.Gyroscope.MeanFreq-Y
+Frequency.Body.Gyroscope.MeanFreq-Z
+Frequency.Body.Acceleration.Magnitude.Mean
+Frequency.Body.Acceleration.Magnitude.StdDev
+Frequency.Body.Acceleration.Magnitude.MeanFrequency
+Frequency.Body.Body.Acceleration_Jerk.Magnitude.Mean
+Frequency.Body.Body.Acceleration_Jerk.Magnitude.StdDev
+Frequency.Body.Body.Acceleration_Jerk.Magnitude.MeanFrequency
+Frequency.Body.Body.Gyroscope.Magnitude.Mean
+Frequency.Body.Body.Gyroscope.Magnitude.StdDev
+Frequency.Body.Body.Gyroscope.Magnitude.MeanFrequency
 
-## Requirement 4. Appropriately label the data set with descriptive activity names.
-In this step, the Activity names are abbreviated and very cryptic to read.  I used gsub functions and regular expressions to make the 
-activity names more description and readable.
+## Activity Labels
 
-## Requirement 5. Create a second, independent tidy data set with the average of each variable for each activity and each subject. 
-In this step, I used the aggregate function to split the data into subsets of activity and subject and compute the mean for each.
-Next, I removed the activityType as activityID is already contained in the dataset and would not make sense in the summary.
-Finally, the resulting tidy dataset is written out to a file called "tidy_data.txt"
+Value of 1 = `WALKING`: subject was walking during the test
+Value of 2 = `WALKING_UPSTAIRS`: subject was walking up a staircase during the test
+Value of 3 = `WALKING_DOWNSTAIRS`: subject was walking down a staircase during the test
+Value of 4 = `SITTING`: subject was sitting during the test
+Value of 5 = `STANDING` : subject was standing during the test
+Value of 6 = `LAYING`: subject was laying down during the test
