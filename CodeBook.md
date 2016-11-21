@@ -107,9 +107,14 @@ Frequency.Body.Body.Gyroscope.Magnitude.MeanFrequency
 
 ## Activity Labels
 
-Value of 1 = `WALKING`: subject was walking during the test
-Value of 2 = `WALKING_UPSTAIRS`: subject was walking up a staircase during the test
-Value of 3 = `WALKING_DOWNSTAIRS`: subject was walking down a staircase during the test
-Value of 4 = `SITTING`: subject was sitting during the test
-Value of 5 = `STANDING` : subject was standing during the test
-Value of 6 = `LAYING`: subject was laying down during the test
+Value of 1 = `WALKING`: subject was walking during the test.
+
+Value of 2 = `WALKING_UPSTAIRS`: subject was walking up a staircase during the test.
+
+Value of 3 = `WALKING_DOWNSTAIRS`: subject was walking down a staircase during the test.
+
+Value of 4 = `SITTING`: subject was sitting during the test.
+
+Value of 5 = `STANDING` : subject was standing during the test.
+
+Value of 6 = `LAYING`: subject was laying down during the test.
